@@ -114,7 +114,7 @@ Before adding your novelty, ensure the base system works.
 **Deliverable 3: Qualitative Analysis**
 * Show one specific example where standard TextGrad failed (e.g., "It deleted the security rule entirely") and your method succeeded ("It refined the IP range specifically").
 
-# P2-Workflow for TextGrad Expansions: From Dataset to Paper
+# P2-Workflow for TextGrad Expansions: Textual Learning Rate Scheduling.
 This document outlines the step-by-step workflow to complete your research paper by extending the "TextGrad" framework. It covers data generation, implementation, and analysis for the novel direction identified: Textual Learning Rate Scheduling.
 
 ## Phase 1: Dataset Generation & Preparation
@@ -202,5 +202,6 @@ Show one specific example where standard TextGrad failed (e.g., "It rewrote the 
 Connect this back to the paper's future work on "connections... between numerical optimization... and TextGrad".
 
 # Future Improvements: Adaptive Textual Optimization
+
 
 Current textual optimization relies on simple, instance-specific feedback analogous to basic Stochastic Gradient Descent, which can lead to instability or slow convergence. A key area for future work is the development of an "Adam for Text" algorithm that formalizes momentum in natural language. By maintaining a history of past textual gradients—extending the specific "momentum analogy" currently used only in radiotherapy —future systems could smooth out conflicting feedback, prevent oscillation between incorrect states, and accelerate convergence across diverse tasks like coding and reasoning.
