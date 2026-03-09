@@ -11,8 +11,8 @@ datasets/
 *.zip
 
 #virtual environment
+.env
 venv/
 env/
 .venv/
 
-.env
