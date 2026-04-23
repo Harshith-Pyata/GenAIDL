@@ -11,25 +11,13 @@ st.set_page_config(page_title="Adaptive TextGrad IDS", page_icon="🛡️", layo
 # ==========================================
 # 0. DEPLOYMENT-SAFE API KEY HANDLING
 # ==========================================
-with st.sidebar:
-    st.header("⚙️ Settings")
-    
-    groq_api_key = None
-    
-    # We wrap this in a try-except block so it doesn't crash your local machine
-    # if you don't have a .streamlit/secrets.toml file setup!
-    try:
-        if "GROQ_API_KEY" in st.secrets:
-            groq_api_key = st.secrets["GROQ_API_KEY"]
-    except Exception:
-        pass # Completely ignore the error and move on
-        
-    # If it didn't find a cloud key, it will ask the user to type one in
-    if not groq_api_key:
-        groq_api_key = st.text_input("Enter Groq API Key", type="password", help="Get this from console.groq.com")
-        
-    if not groq_api_key:
-        st.warning("⚠️ Please enter a Groq API Key to enable detection.")
+try:
+    # Pulls the API key securely from Streamlit's hidden secrets vault
+    groq_api_key = st.secrets["GROQ_API_KEY"]
+except (KeyError, FileNotFoundError):
+    st.error("🚨 **Configuration Error:** GROQ_API_KEY is missing!")
+    st.info("Please add your API key to the Streamlit Secrets console to run this app.")
+    st.stop() # Stops the rest of the app from loading until the key is fixed
 # ==========================================
 # 1. SESSION STATE INITIALIZATION
 # ==========================================
